@@ -8,7 +8,11 @@ class Content extends Component {
       <div>
         <h1>Content</h1>
 
-        <Form />
+        <Form
+          valueTransaction={this.props.valueTransaction}
+          typeTransaction={this.props.typeTransaction}
+          changeValue={this.props.changeValue}
+        />
       </div>
     )
   }
