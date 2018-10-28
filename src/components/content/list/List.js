@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 
 class List extends Component {
+
+  getList() {
+    const list = this.props.list || []
+    return (
+      list.map((i, k) => {
+        return (i, k)
+      })
+    )
+  }
   render() {
     return (
       <div className="content">
