@@ -20,8 +20,8 @@ class Content extends Component {
             <Route
               exact path={urls.list.path}
               render={ props => <List 
-              list={this.props.listTransaction}
-              total='0'
+              list={this.props.list}
+              total={this.props.total}
               />
             }
           />

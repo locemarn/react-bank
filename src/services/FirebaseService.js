@@ -1,10 +1,10 @@
 import {firebaseDatabase} from '../database/firebase'
 
 export default class FirebaseService {
-  static getDataList = (nodePath, callback, size = 10) => {
+  static getDataList = (nodePath, callback) => {
 
-    let query = firebaseDatabase.ref(nodePath)
-                                .limitToLast(size);
+    let query = firebaseDatabase.ref(nodePath).orderByKey()
+                                
     query.on('value', dataSnapshot => {
       let items = [];
       dataSnapshot.forEach(childSnapshot => {
@@ -12,9 +12,16 @@ export default class FirebaseService {
         item['key'] = childSnapshot.key;
         items.push(item);
       });
+      items.reverse()
       callback(items);
     });
     return query;
   };
+  static pushData = (node, objToSubmit) => {
+    const ref = firebaseDatabase.ref(node).push()
+    const id = firebaseDatabase.ref(node).push().key
+    ref.set(objToSubmit)
+    return id
+  }
 
 }

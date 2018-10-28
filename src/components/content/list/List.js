@@ -8,7 +8,7 @@ class List extends Component {
     const list = this.props.list || []
     return (
       list.map((i, k) => (
-        <tr key={k.key}>
+        <tr key={k}>
           <td>R$ {i.value}</td>
           <td>{i.description}</td>
         </tr>

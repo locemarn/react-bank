@@ -5,18 +5,21 @@ import FirebaseService from './services/FirebaseService';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Content from './components/content/Content'
-import FirebaseService from './services/FirebaseService';
 
 const defaultValue = '0.00'
+const FirebaseNode = 'transactions'
 
 class App extends Component {
+
   constructor(props) {
     super(props)
+
     this.state = {
       valueTransaction: defaultValue,
       typeTransaction: 'credit',
       listTransaction: [],
-      data: []
+      data: [],
+      total: 0
     }
   }
 
@@ -39,23 +42,37 @@ class App extends Component {
       return false
     }
 
-    let list = this.state.listTransaction
-    list.push(this.state.valueTransaction)
+    let newId = 0
+
+    let value = this.state.typeTransaction === 'debit' ? this.state.valueTransaction*-1 : this.state.valueTransaction
+
+    newId = FirebaseService.pushData(FirebaseNode, {
+      'value': value
+    })
 
     this.setState({
       ...this.state,
-      valueTransaction: defaultValue,
-      listTransaction: list
+      valueTransaction: defaultValue
     })
+
+    return newId
   }
 
-  componentDidMount = () => {
-    FirebaseService.getDataList('transactions', (dataReceived) => {
+  componentWillMount() {
+    FirebaseService.getDataList(FirebaseNode, (list) => {
+      const total = list.reduce(function(acm, item) {
+        return acm + parseFloat(item.value)
+      }, 0)
       this.setState({
-        listTransaction: dataReceived
+        ...this.state,
+        valueTransaction: defaultValue,
+        listTransaction: list,
+        total: total
       })
     })
   }
+
+  
 
   render() {
     return (
@@ -68,7 +85,8 @@ class App extends Component {
           changeValue={this.changeValue}
           changeType={this.changeType}
           addTransaction={this.addTransaction}
-          listTransaction={this.state.listTransaction}
+          list={this.state.listTransaction}
+          total={this.state.total}
         />
         
         <Footer />
