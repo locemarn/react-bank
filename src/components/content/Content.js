@@ -18,9 +18,9 @@ class Content extends Component {
             render={props => <Main /> }
           />
             <Route
-            exact path={urls.list.path}
-            render={ props => <List 
-              list={this.props.list}
+              exact path={urls.list.path}
+              render={ props => <List 
+              list={this.props.listTransaction}
               total='0'
               />
             }

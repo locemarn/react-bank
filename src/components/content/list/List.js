@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import './list.css'
+
 class List extends Component {
 
   getList() {
@@ -11,6 +13,7 @@ class List extends Component {
     )
   }
   render() {
+    this.getList()
     return (
       <div className="content">
         <h1>Transactions</h1>
@@ -24,12 +27,8 @@ class List extends Component {
 
           <tbody>
             <tr>
-              <td>$0.87</td>
-              <td>Eclair</td>
-            </tr>
-            <tr>
-              <td>$3.76</td>
-              <td>Jellybean</td>
+              <td>k</td>
+              <td>i</td>
             </tr>
           </tbody>
         </table>
