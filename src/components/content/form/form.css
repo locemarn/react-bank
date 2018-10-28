@@ -1,0 +1,12 @@
+button {
+  margin: 50px 0px;
+}
+
+.radios {
+  display: flex;
+  justify-content: center;
+}
+
+.radios label {
+  padding: 20px;
+}
