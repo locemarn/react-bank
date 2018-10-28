@@ -1,4 +1,4 @@
-export const urls = {
+const urls = {
   home: {
     name: 'Home',
     path: '/'
@@ -12,3 +12,5 @@ export const urls = {
     path: '/add-transaction'
   }
 }
+
+export default urls
