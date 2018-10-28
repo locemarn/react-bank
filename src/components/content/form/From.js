@@ -5,10 +5,17 @@ import InputValue from './inputValue/InputValue'
 import './form.css'
 
 class Form extends Component {
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.addTransaction()
+  }
+
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col s12">
               <div className="row">

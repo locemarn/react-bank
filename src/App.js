@@ -4,12 +4,15 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Content from './components/content/Content'
 
+const defaultValue = '0.00'
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      valueTransaction: '0.00',
-      typeTransaction: 'credit'
+      valueTransaction: defaultValue,
+      typeTransaction: 'credit',
+      listTransaction: []
     }
   }
 
@@ -27,6 +30,21 @@ class App extends Component {
     })
   }
 
+  addTransaction = (e) => {
+    if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction) {
+      return false
+    }
+
+    let list = this.state.listTransaction
+    list.push(this.state.valueTransaction)
+
+    this.setState({
+      ...this.state,
+      valueTransaction: defaultValue,
+      listTransaction: list
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,6 +55,7 @@ class App extends Component {
           typeTransaction={this.state.typeTransaction}
           changeValue={this.changeValue}
           changeType={this.changeType}
+          addTransaction={this.addTransaction}
         />
         
         <Footer />
