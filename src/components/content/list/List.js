@@ -7,9 +7,12 @@ class List extends Component {
   getList() {
     const list = this.props.list || []
     return (
-      list.map((i, k) => {
-        return (i, k)
-      })
+      list.map((i, k) => (
+        <tr key={k.key}>
+          <td>R$ {i.value}</td>
+          <td>{i.description}</td>
+        </tr>
+      ))
     )
   }
   render() {
@@ -17,21 +20,18 @@ class List extends Component {
     return (
       <div className="content">
         <h1>Transactions</h1>
-        <table>
+        <table className="centered responsive-table">
           <thead>
             <tr>
-                <th>Value</th>
-                <th>Description</th>
+              <th>Value</th>
+              <th>Description</th>
             </tr>
           </thead>
-
           <tbody>
-            <tr>
-              <td>k</td>
-              <td>i</td>
-            </tr>
+            {this.getList()}
           </tbody>
         </table>
+        <h2>Total: R$ {this.props.total}</h2>
       </div>
     )
   }
