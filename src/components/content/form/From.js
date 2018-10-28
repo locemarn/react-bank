@@ -39,7 +39,8 @@ class Form extends Component {
                 name="group1"
                 type="radio"
                 defaultChecked
-                value={this.props.typeTransaction}  
+                value={this.props.typeTransaction}
+                onChange={this.props.changeType}
               />
               <span>Credit</span>
             </label>

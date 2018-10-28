@@ -20,6 +20,13 @@ class App extends Component {
     })
   }
 
+  changeType = (e) => {
+    this.setState({
+      ...this.state,
+      typeTransaction: e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,6 +36,7 @@ class App extends Component {
           valueTransaction={this.state.valueTransaction}
           typeTransaction={this.state.typeTransaction}
           changeValue={this.changeValue}
+          changeType={this.changeType}
         />
         
         <Footer />

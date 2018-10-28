@@ -12,6 +12,7 @@ class Content extends Component {
           valueTransaction={this.props.valueTransaction}
           typeTransaction={this.props.typeTransaction}
           changeValue={this.props.changeValue}
+          changeType={this.props.changeType}
         />
       </div>
     )
