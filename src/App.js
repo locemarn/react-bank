@@ -5,6 +5,7 @@ import FirebaseService from './services/FirebaseService';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Content from './components/content/Content'
+import FirebaseService from './services/FirebaseService';
 
 const defaultValue = '0.00'
 
