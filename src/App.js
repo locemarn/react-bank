@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import FirebaseService from './services/FirebaseService';
+
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Content from './components/content/Content'
@@ -12,7 +14,8 @@ class App extends Component {
     this.state = {
       valueTransaction: defaultValue,
       typeTransaction: 'credit',
-      listTransaction: []
+      listTransaction: [],
+      data: []
     }
   }
 
@@ -45,6 +48,14 @@ class App extends Component {
     })
   }
 
+  componentDidMount = () => {
+    FirebaseService.getDataList('transactions', (dataReceived) => {
+      this.setState({
+        listTransaction: dataReceived
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,6 +67,7 @@ class App extends Component {
           changeValue={this.changeValue}
           changeType={this.changeType}
           addTransaction={this.addTransaction}
+          listTransaction={this.state.listTransaction}
         />
         
         <Footer />
