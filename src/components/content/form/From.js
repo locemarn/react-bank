@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import InputValue from './inputValue/InputValue'
+
 import './form.css'
 
 class Form extends Component {
@@ -11,21 +13,18 @@ class Form extends Component {
             <div className="col s12">
               <div className="row">
 
-              {/* WILL CREATE A COMPONENT */}
-                <div className="input-field col l3 s12 offset-l3">
-                  <i className="material-icons prefix">attach_money</i>
-                  <input type="text" id="autocomplete-input" className="autocomplete" />
-                  <label htmlFor="autocomplete-input">Value</label>
-                </div>
-                {/* -- */}
+                <InputValue 
+                  label='Value: '
+                  required
+                  value={this.props.valueTransaction}
+                  changeValue={this.props.changeValue}
+                />
+            
                 <div className="input-field col l3 s12">
                   <i className="material-icons prefix">mode_edit</i>
                   <textarea
                     id="textarea1"
                     className="materialize-textarea"
-                    required
-                    value={this.props.valueTransaction}
-                    onChange={this.props.changeValue}  
                   ></textarea>
                   <label htmlFor="textarea1">Description</label>
                 </div>
