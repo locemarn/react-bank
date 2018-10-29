@@ -62,7 +62,8 @@ class App extends Component {
   }
 
   addTransaction = (e) => {
-    if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction) {
+    if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction || !this.state.descriptionTransaction) {
+      window.Materialize.toast('Please, fill all inputs!', 3000, 'red')
       return false
     }
 
@@ -77,6 +78,8 @@ class App extends Component {
     })
 
     this.updateTransactionList()
+
+    window.Materialize.toast('Transaction added with success!', 3000, 'green')
 
     return newId
   }

@@ -11,14 +11,19 @@ class Form extends Component {
     
     this.props.addTransaction()
     this.setState({
-      ...this.state
+      ...this.state,
+      descriptionTransaction: ''
     })
+
   }
 
 
   render() {
     return (
       <div>
+        <div>
+          <h2 className="center wrapper">Add Transaction</h2>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col s12">

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import urls from '../../utils/urls'
 
+import './header.css'
+
 class Header extends Component {
   render() {
     return (
