@@ -18,6 +18,7 @@ class App extends Component {
       valueTransaction: defaultValue,
       typeTransaction: 'credit',
       listTransaction: [],
+      descriptionTransaction: '',
       data: [],
       total: 0
     }
@@ -37,39 +38,49 @@ class App extends Component {
     })
   }
 
+  changeDescription = (e) => {
+    this.setState({
+      ...this.state,
+      descriptionTransaction: e.target.value
+    })
+  }
+
+  updateTransactionList = () => {
+    FirebaseService.getDataList(FirebaseNode, (list) => {
+
+      const total = list.reduce((acm, item) => {
+        return acm + parseFloat(item.value)
+      }, 0)
+
+      this.setState({
+        ...this.state, valueTransaction: defaultValue,
+        listTransaction: list,
+        total: total
+      })
+    })
+  }
+
   addTransaction = (e) => {
     if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction) {
       return false
     }
 
     let newId = 0
-
+console.log(this.state.typeTransaction)
     let value = this.state.typeTransaction === 'debit' ? this.state.valueTransaction*-1 : this.state.valueTransaction
 
     newId = FirebaseService.pushData(FirebaseNode, {
-      'value': value
+      'value': value,
+      'description': this.state.descriptionTransaction
     })
 
-    this.setState({
-      ...this.state,
-      valueTransaction: defaultValue
-    })
+    this.updateTransactionList()
 
     return newId
   }
 
   componentWillMount() {
-    FirebaseService.getDataList(FirebaseNode, (list) => {
-      const total = list.reduce(function(acm, item) {
-        return acm + parseFloat(item.value)
-      }, 0)
-      this.setState({
-        ...this.state,
-        valueTransaction: defaultValue,
-        listTransaction: list,
-        total: total
-      })
-    })
+    this.updateTransactionList()
   }
 
   
@@ -81,8 +92,10 @@ class App extends Component {
         
         <Content
           valueTransaction={this.state.valueTransaction}
+          descriptionTransaction={this.state.descriptionTransaction}
           typeTransaction={this.state.typeTransaction}
           changeValue={this.changeValue}
+          changeDescription={this.changeDescription}
           changeType={this.changeType}
           addTransaction={this.addTransaction}
           list={this.state.listTransaction}

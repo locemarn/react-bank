@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Route } from 'react-router-dom'
 
-import Form from './form/From'
+import Form from './form/Form'
 import List from './list/List'
 import urls from '../../utils/urls'
 import Main from './main/main'
@@ -17,9 +17,10 @@ class Content extends Component {
             path={urls.home.path}
             render={props => <Main /> }
           />
-            <Route
-              exact path={urls.list.path}
-              render={ props => <List 
+
+          <Route
+            exact path={urls.list.path}
+            render={ props => <List 
               list={this.props.list}
               total={this.props.total}
               />
@@ -33,6 +34,7 @@ class Content extends Component {
                 descriptionTransaction={this.props.descriptionTransaction}
                 typeTransaction={this.props.typeTransaction}
                 changeValue={this.props.changeValue}
+                changeDescription={this.props.changeDescription}
                 changeType={this.props.changeType}
                 addTransaction={this.props.addTransaction}
               />

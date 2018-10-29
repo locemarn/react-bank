@@ -9,6 +9,9 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.addTransaction()
+    this.setState({
+      ...this.state
+    })
   }
 
 
@@ -29,11 +32,14 @@ class Form extends Component {
             
                 <div className="input-field col l3 s12">
                   <i className="material-icons prefix">mode_edit</i>
-                  <textarea
-                    id="textarea1"
-                    className="materialize-textarea"
-                  ></textarea>
-                  <label htmlFor="textarea1">Description</label>
+                  <input 
+                    id="description"
+                    type="text"
+                    className="validate"
+                    requiredvalue={this.props.descriptionTransaction}
+                    onChange={this.props.changeDescription}
+                  />
+                  <label htmlFor="description">Description</label>
                 </div>
               </div>
             </div>
@@ -53,8 +59,7 @@ class Form extends Component {
             <label>
               <input
                 name="group1"
-                type="radio" 
-                value={this.props.typeTransaction}  
+                type="radio"
               />
               <span>Debit</span>
             </label>
