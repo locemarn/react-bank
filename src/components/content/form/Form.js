@@ -8,7 +8,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.setState.type)
+    
     this.props.addTransaction()
     this.setState({
       ...this.state

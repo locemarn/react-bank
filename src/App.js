@@ -53,7 +53,8 @@ class App extends Component {
       }, 0)
 
       this.setState({
-        ...this.state, valueTransaction: defaultValue,
+        ...this.state, 
+        valueTransaction: defaultValue,
         listTransaction: list,
         total: total
       })
@@ -66,7 +67,7 @@ class App extends Component {
     }
 
     let newId = 0
-console.log(this.state.typeTransaction)
+    
     let value = this.state.typeTransaction === 'debit' ? this.state.valueTransaction*-1 : this.state.valueTransaction
 
     newId = FirebaseService.pushData(FirebaseNode, {
