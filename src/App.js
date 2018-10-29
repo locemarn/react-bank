@@ -16,7 +16,7 @@ class App extends Component {
 
     this.state = {
       valueTransaction: defaultValue,
-      typeTransaction: 'credit',
+      typeTransaction: '',
       listTransaction: [],
       descriptionTransaction: '',
       data: [],
@@ -71,7 +71,8 @@ console.log(this.state.typeTransaction)
 
     newId = FirebaseService.pushData(FirebaseNode, {
       'value': value,
-      'description': this.state.descriptionTransaction
+      'description': this.state.descriptionTransaction,
+      'type': this.state.typeTransaction
     })
 
     this.updateTransactionList()

@@ -8,6 +8,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.setState.type)
     this.props.addTransaction()
     this.setState({
       ...this.state
@@ -51,7 +52,7 @@ class Form extends Component {
                 name="group1"
                 type="radio"
                 defaultChecked
-                value={this.props.typeTransaction}
+                value='credit'
                 onChange={this.props.changeType}
               />
               <span>Credit</span>
@@ -60,6 +61,8 @@ class Form extends Component {
               <input
                 name="group1"
                 type="radio"
+                value='debit'
+                onChange={this.props.changeType}
               />
               <span>Debit</span>
             </label>
