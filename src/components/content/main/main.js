@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 
+import './main.css'
+
 import urls from '../../../utils/urls'
 
 class Main extends Component {
@@ -10,11 +12,8 @@ class Main extends Component {
         <a className="btn-floating btn-large waves-effect waves-light teal" href={urls.add.path}>
           <i className="material-icons">add</i>
         </a>
-        <a
-          className="btn-floating btn-large waves-effect waves-light teal" href={urls.list.path}>
-        </a>
+        
         <a className="btn-floating btn-large waves-effect waves-light teal pulse" href={urls.list.path}>
-
           <i className="material-icons">list</i>
         </a>
       </div>
