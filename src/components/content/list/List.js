@@ -24,7 +24,7 @@ class List extends Component {
               className="btn-floating btn-small waves-effect waves-light red"
               onClick={() => this.remove(i.key)}
             >
-              <i className="material-icons">cancel</i>
+              <i className="material-icons">delete</i>
 
             </button>
           </td>
@@ -35,7 +35,6 @@ class List extends Component {
   
 
   render() {
-    this.getList()
     return (
       <div className="center">
         <h2>Transactions</h2>

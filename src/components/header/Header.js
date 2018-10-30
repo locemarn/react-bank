@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import urls from '../../utils/urls'
-
 class Header extends Component {
   render() {
     return (
       <nav>
         <div className="left">
+        {console.log(this.props.currentRoute)}
+        {/* { this.props.currentRoute === urls.home.path? <HomeIcon /> : <ArrowBack /> } */}
           <a className="btn-floating btn-large waves-effect waves-light" href={urls.home.path}>
             <i className="material-icons teal">home</i>
           </a>

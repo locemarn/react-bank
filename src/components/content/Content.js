@@ -10,7 +10,8 @@ import Main from './main/main'
 class Content extends Component {
   render() {
     return (
-      <div className="card darken-1">
+      <div className="row">
+      <div className="card darken-1 col l8 offset-l2 s10 offset-s1">
         <div className="card-content white-text">
           <Route
             exact
@@ -42,6 +43,7 @@ class Content extends Component {
             }
           />  
         </div>   
+      </div>
       </div>
     )
   }

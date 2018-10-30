@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './main.css'
 
 import urls from '../../../utils/urls'
-
 class Main extends Component {
   render() {
     return (
       <div className="container buttons center">
-        <a className="btn-floating btn-large waves-effect waves-light teal" href={urls.add.path}>
+        <a className="btn-floating btn-large waves-effect waves-light teal pulse" href={urls.add.path}>
           <i className="material-icons">add</i>
         </a>
         
