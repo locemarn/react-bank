@@ -56,7 +56,7 @@ class App extends Component {
         ...this.state, 
         valueTransaction: defaultValue,
         listTransaction: list,
-        total: total
+        total: total.toFixed(2)
       })
     })
   }
