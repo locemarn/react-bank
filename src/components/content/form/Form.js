@@ -14,6 +14,7 @@ class Form extends Component {
       ...this.state,
       descriptionTransaction: ''
     })
+    e.target.reset()
 
   }
 
