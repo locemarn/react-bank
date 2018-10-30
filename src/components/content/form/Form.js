@@ -13,6 +13,11 @@ class Form extends Component {
     this.setState({
       ...this.state
     })
+<<<<<<< HEAD
+=======
+    e.target.reset()
+
+>>>>>>> master
   }
 
 
