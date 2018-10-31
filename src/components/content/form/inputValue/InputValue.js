@@ -4,7 +4,6 @@ class InputValue extends Component {
 
   onKeyPress = (e) => {
     const regex = /^[0-9]|[.]$/
-
     if (!regex.test(e.key)) {
       return e.preventDefault()
     }

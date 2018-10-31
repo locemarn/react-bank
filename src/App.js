@@ -24,6 +24,10 @@ class App extends Component {
     }
   }
 
+  toast = (msg, color) => {
+    window.Materialize.toast(msg, 4000, color)
+  }
+
   changeValue = (e) => {
     this.setState({
       ...this.state,
@@ -62,7 +66,8 @@ class App extends Component {
   }
 
   addTransaction = (e) => {
-    if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction) {
+    if ((this.state.valueTransaction === defaultValue) || !this.state.valueTransaction || !this.state.descriptionTransaction) {
+      this.toast('Please, fill all inputs!', 'pink')
       return false
     }
 
@@ -75,7 +80,7 @@ class App extends Component {
       'description': this.state.descriptionTransaction,
       'type': this.state.typeTransaction
     })
-
+    this.toast('Transaction added with success!', 'green')
     this.updateTransactionList()
 
     return newId
