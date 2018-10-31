@@ -1,4 +1,4 @@
-# Project Title
+# React Bank
 
 A simple web app wher you can add and remove transactions.
 
@@ -6,11 +6,11 @@ All transactions persist in database and show you in a list page.
 
 ## Getting Started
 
-For using this app, you can clone this project to your computer.
+For using this app, you can clone this project to your computer with the command `git clone git@github.com:locemarn/react-bank.git`.
 
-Late, you need run commannd `npm install` to install all dependencies.
+Late, you need run command `npm install` to install all dependencies.
 
-After that, you just can run command 'npm start' or if you prefeer using yarn, run command 'yarn start'.
+After that, you just can run command `npm start` or if you prefeer using yarn, run command `yarn start`.
 
 Have fun. =)
 
@@ -18,18 +18,18 @@ Have fun. =)
 
 You need to be install in your computer [Node.js](https://nodejs.org/en/).
 
-I recomend you install ReactJs globally with the command 'npm install -g create-react-app'.
+I recomend you install ReactJs globally with the command `npm install -g create-react-app`.
 
 ## Running the tests
 
-I made a simple tests in this app. Then you can run 'yarn test' or 'npm test' for see all tests applied.
+I made simple tests in this app. Then you can run `yarn test` or `npm test` for see all tests applied.
 
 For stop the test, use Ctrl + c on Windows and Linux or Comand + c on Mac.
 
 
 ## Built With
 
-* Reactjs - (https://reactjs.org)
+* React - (https://reactjs.org)
 * Firebase - (https://firebase.google.com/)
 * Materialize css - (https://materializecss.com)
 
