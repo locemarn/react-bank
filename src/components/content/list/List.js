@@ -13,23 +13,29 @@ class List extends Component {
   getList() {
     const list = this.props.list || []
     return (
-      list.map((i, k) => (
-        <tr key={i.key}>
-          <td>R$ {i.value}</td>
-          <td>{i.description}</td>
-          <td>{!i.type ? 'credit' : i.type}</td>
-          <td>
+      list.map((i, k) => {
+        const partial = list.slice(0, k + 1)
+        const t = partial.reduce((acm, item) => {
+          return acm + parseFloat(item.value)
+        }, 0)
 
-            <button 
-              className="btn-floating btn-small waves-effect waves-light red"
-              onClick={() => this.remove(i.key)}
-            >
-              <i className="material-icons">delete</i>
+        return <tr key={i.key}>
+                  <td>R$ {i.value}</td>
+                  <td>{i.description}</td>
+                  <td>{!i.type ? 'credit' : i.type}</td>
+                  <td>{t}</td>
+                  <td>
 
-            </button>
-          </td>
-        </tr>
-      ))
+                    <button 
+                      className="btn-floating btn-small waves-effect waves-light red"
+                      onClick={() => this.remove(i.key)}
+                    >
+                      <i className="material-icons">delete</i>
+
+                    </button>
+                  </td>
+                </tr>
+      })
     )
   }
   
@@ -44,6 +50,7 @@ class List extends Component {
               <th>Value</th>
               <th>Description</th>
               <th>Type</th>
+              <th>Partial Value</th>
               <th>Delete</th>
             </tr>
           </thead>
