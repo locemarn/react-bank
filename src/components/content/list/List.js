@@ -14,7 +14,7 @@ class List extends Component {
     const list = this.props.list || []
     return (
       list.map((i, k) => {
-        const partial = list.slice(0, k + 1)
+        const partial = list.slice(k, list.length)
         const t = partial.reduce((acm, item) => {
           return acm + parseFloat(item.value)
         }, 0)

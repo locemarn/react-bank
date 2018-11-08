@@ -12,7 +12,7 @@ export default class FirebaseService {
         item['key'] = childSnapshot.key;
         items.push(item);
       });
-      // items.reverse()
+      items.reverse()
       callback(items);
     });
     return query;
