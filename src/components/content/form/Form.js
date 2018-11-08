@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import InputValue from './inputValue/InputValue'
 
@@ -78,6 +79,10 @@ class Form extends Component {
       </div>
       )
   }
+}
+
+Form.PropTypes = {
+  descriptionTransaction: PropTypes.string.isRequired
 }
 
 export default Form

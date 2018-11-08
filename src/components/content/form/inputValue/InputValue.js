@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class InputValue extends Component {
 
@@ -33,8 +34,6 @@ class InputValue extends Component {
 
   render() {
 
-    let isRequired = this.props.required ? true : false
-
     return (
       <div className="input-field col l3 s12 offset-l3">
         <i className="material-icons prefix">attach_money</i>
@@ -42,7 +41,6 @@ class InputValue extends Component {
           type="text"
           id="autocomplete-input"
           className="autocomplete"
-          required={isRequired}
           value={this.props.value}
           onKeyPress={this.onKeyPress}
           onChange={this.onKeyUp}
@@ -52,6 +50,10 @@ class InputValue extends Component {
       </div>
     )
   }
+}
+
+InputValue.propTypes = {
+  value: PropTypes.string.isRequired
 }
 
 export default InputValue
