@@ -81,7 +81,7 @@ class Form extends Component {
   }
 }
 
-Form.PropTypes = {
+Form.propTypes = {
   descriptionTransaction: PropTypes.string.isRequired
 }
 
