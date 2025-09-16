@@ -42,8 +42,3 @@ If you like this web App and would be contributing, open an issua with your suge
 
 * **Marcelo Nogueira da Silva** - *Initial work* - [locemarn](https://github.com/locemarn)
 
-
-## Acknowledgments
-
-* My Mom
-* My dogs Bob and Zico
